@@ -40,13 +40,13 @@ function App() {
     setContacts(contactsCopy);
   };
 
-  // const deleteClick = ({c}) => {
+  const deleteClick = (id) => {
     
-  //   const contactsCopy = [...contacts];
-  //   contactsCopy.filter(contact => word.length > 6);
-  //   setContacts(contactsCopy);
+   const contactsCopy = [...contacts];
+   contactsCopy.filter(cont => cont.id !== id);
+   setContacts(contactsCopy);
    
-  // };
+  };
 
 
   return (
@@ -72,7 +72,7 @@ function App() {
               <td>{cont.popularity}</td>
               <td>{cont.wonOscar && `🏆`}</td>
               <td>{cont.wonEmmy && `🏆`}</td>
-              {/* <th><button onClick={deleteClick}>delete</button></th> */}
+              <th><button onClick={()=>deleteClick(cont.id)}>delete</button></th>
             </tr>
           )
         })}
